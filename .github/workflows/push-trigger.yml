@@ -9,11 +9,11 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v2
-      - name: Upload the artifact
-        uses: actions/upload@v2
-        with:
-          name:  ${{ env.ARTIFACT_NAME }}
-          path:  .
+    - name: Check out code
+      uses: actions/checkout@v2
+    - name: Upload the artifact
+      uses: actions/upload@v2
+      with:
+        name:  ${{ env.ARTIFACT_NAME }}
+        path:  .
  
