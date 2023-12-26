@@ -6,8 +6,6 @@ jobs:
       JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for ubuntu'
     runs-on:  ubuntu-latest
     steps:
-    - name: Build ${{ env.FILE_NAME }} for ubuntu-latest
-      run: go build ${{ env.FILE_NAME }}.go
     - name: Upload artifact for linux
       uses: actions/upload-artifact@v1.0.0
       with:
