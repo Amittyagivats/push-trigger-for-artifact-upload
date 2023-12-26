@@ -1,0 +1,22 @@
+name:  Push Trigger for Uploading Artifact
+on:  [push]
+jobs:
+  pushTrigger:
+    env:
+      JOB_ENVIRONMENT_VARIABLE: 'custom job environment variable for ubuntu'
+    runs-on:  ubuntu-latest
+    steps:
+    - name: Build ${{ env.FILE_NAME }} for ubuntu-latest
+      run: go build ${{ env.FILE_NAME }}.go
+    - name: Upload artifact for linux
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: linux
+        path: ./${{ env.FILE_NAME }}
+    - name: Download artifact
+      uses: actions/download-artifact@v1.0.0
+      with:
+        name: linux
+    - name: Test ${{ env.FILE_NAME }}
+      run: source ./test.sh
+    
