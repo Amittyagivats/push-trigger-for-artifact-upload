@@ -11,10 +11,6 @@ jobs:
       with:
         name: linux
         path: ./${{ env.FILE_NAME }}
-    - name: Download artifact
-      uses: actions/download-artifact@v1.0.0
-      with:
-        name: linux
     - name: Test ${{ env.FILE_NAME }}
       run: source ./test.sh
     
